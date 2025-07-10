@@ -118,6 +118,16 @@ if hasattr(best_model, 'feature_importances_'):
 best_model.fit(X_train_scaled, y_train)  # Retrain on full training data
 test_pred = best_model.predict(X_test_scaled)
 
+from sklearn.model_selection import GridSearchCV
+from xgboost import XGBRegressor
+params = {
+    'n_estimators': [100, 200, 300],
+    'max_depth': [5, 10, 15],
+    'learning_rate': [0.01, 0.1, 0.2]
+}
+grid = GridSearchCV(XGBRegressor(), params, cv=5)
+grid.fit(X_train, y_train)
+
 # After model training (continuing from previous code)
 
 # 1. Display sample predictions vs actual values
