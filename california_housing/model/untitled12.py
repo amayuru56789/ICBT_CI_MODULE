@@ -194,3 +194,14 @@ submission = pd.DataFrame({
 })
 submission.to_csv('submission.csv', index=False)
 print("\nSubmission file created: submission.csv")
+
+import joblib
+
+# Save the best model (and scaler) to .pkl files
+joblib.dump(best_model, 'california_housing_model.pkl')  # Model
+joblib.dump(scaler, 'scaler.pkl')  # Scaler (important for preprocessing new data)
+
+# Download the files to your local machine
+from google.colab import files
+files.download('california_housing_model.pkl')
+files.download('scaler.pkl')

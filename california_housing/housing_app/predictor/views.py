@@ -11,7 +11,7 @@ class PredictView(View):
     def get(self, request):
         return render(request, 'predictor/index.html')
 
-def post(self, request):
+    def post(self, request):
         # Get form data
         features = [
             float(request.POST['MedInc']),
@@ -25,8 +25,8 @@ def post(self, request):
         ]
         
         # Load model and scaler (pretrained)
-        model = joblib.load('predictor/model/xgb_model.joblib')
-        scaler = joblib.load('predictor/model/scaler.joblib')
+        model = joblib.load('ml_models/california_housing_model.pkl')
+        scaler = joblib.load('ml_models/scaler.pkl')
         
         # Preprocess and predict
         features_scaled = scaler.transform([features])
