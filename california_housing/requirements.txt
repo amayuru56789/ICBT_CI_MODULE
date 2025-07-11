@@ -1,3 +1,7 @@
 django
 djangorestframework
+xgboost
+scikit-learn
+pandas
+joblib
 environs

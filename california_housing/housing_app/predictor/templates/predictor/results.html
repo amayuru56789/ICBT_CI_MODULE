@@ -1,0 +1,19 @@
+{% extends 'predictor/base.html' %}
+
+{% block content %}
+<div class="results-container">
+    <h2>Prediction Result</h2>
+    <div class="prediction-box">
+        Estimated Home Value: <span class="prediction-value">{{ prediction }}</span>
+    </div>
+    
+    <h3>Input Details</h3>
+    <table class="input-details">
+        <tr><th>Feature</th><th>Value</th></tr>
+        <tr><td>Median Income</td><td>{{ input_data.MedInc }}</td></tr>
+        <!-- Add all other features -->
+    </table>
+    
+    <a href="/" class="back-button">Make Another Prediction</a>
+</div>
+{% endblock %}
